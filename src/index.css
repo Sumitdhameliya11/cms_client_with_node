@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.slide-content {
+  height:90vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:start;
+  color: white; /* Text color */
+  background-size:cover; /* Adjust the image to cover the container */
+  background-position:auto;/* Center background image */
+  background-repeat: no-repeat;
+  padding: 20px; /* Padding for the content */
+}
+
+span{
+  backdrop-filter:blur(2px);
+}
+
+.title,.subtitle,.text{
+  z-index: 200;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+}
+
+.text {
+  font-size: 1rem;
+  max-width: 600px; /* Max width for the text */
+  text-align:justify; /* Center the text */
+}
+
+/* =======================testimonial ======================= */
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee {
+  display: flex;
+  animation: marquee 15s linear infinite;
+}
+
+.testimonial {
+  flex: 0 0 auto;
+  margin: 0 10px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ============================= login and registration bg image ========================= */
+#container {
+  background-image: url(./image/back.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:left;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  box-shadow: 1px 1px 5px 1px #13131354;
+}
+
+#div{
+  backdrop-filter:blur(15px);
+}
+
+/* ==========================side bar ---------------------- */
+.sidebar {
+  position: absolute !important;
+  height: 100vh !important;
+  background: white !important;
+  width: 250px !important;
+  z-index: 1 !important;
+}
+
+.st-main {
+  padding-left: 250px;
+  max-height: 100vh !important;
+  overflow: auto !important;
+}
+@media (max-width: 768px) {
+  .st-main {
+    padding-left: 0px !important;
+  }
+}
+.active-menu > .ps-menu-button {
+  background-color: #f3f3f3 !important;
+}
+
+#id{
+  text-decoration: none !important;
+}
+
+/* -----------------------Scrollbar----------------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background-color: #ffffff35;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #00408b;
+  border-radius: 10px;
+}
+
+/* ------------------ */
+ol li {
+  margin: 15px 0px 15px 0px;
+}
+
+/* --------------------Loader css-------------------- */
+.loader-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-img {
+  text-align: center;
+}
+
+.d-flex input:focus {
+  outline: none;
+  box-shadow: none;
+
+}

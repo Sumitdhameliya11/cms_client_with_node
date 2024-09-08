@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  @media(max-width:700px){
+    .home{
+      z-index: 0 !important;
+    }
+  }
+  
+  /* --------------------------------Header page open color----------------------------- */
+  .item.active {
+    color: #1974d2;
+  }
+  .item.active .wpbtn {
+    color: #1974d2;
+  }
+  .item.active .wpbtn img {
+    filter: invert(35%) sepia(100%) saturate(618%) hue-rotate(176deg)
+      brightness(97%) contrast(101%);
+  }
+  
+  /* ------------------------Ensure the hover styles are applied to the parent elements-------------------------------- */
+  .navv .item .wpbtn:hover {
+    color: #1974d2 !important;
+  }
+  
+  .navv .item .wpbtn img {
+    transition: filter 0.3s ease;
+  }
+  
+  .navv .item .wpbtn:hover img {
+    filter: invert(35%) sepia(100%) saturate(618%) hue-rotate(176deg)
+      brightness(97%) contrast(101%);
+  }
+  
+  .techme_backed_new .techme_backed_new_box h5 {
+    font-size: 20px;
+    line-height: 30px;
+    padding-top: 20px;
+    margin-bottom: 0;
+  }
+  
+  .techme_backed_new ul li {
+    width: 50px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    margin-left: -13px;
+  }
+  .techme_backed_new ul li img {
+    border-radius: 50%;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+  
+  .ft-imgss li img {
+    height: 40px;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+  .main-btn_new {
+    background: #00408b;
+  }
+  .main-btn_new:hover {
+    background-color: #0d6efd;
+  }
+  
+  .contact_footer li {
+    display: block;
+    /* line-height: 2pc; */
+  }
+  .contact_footer li a {
+    text-decoration: none;
+  }
+  

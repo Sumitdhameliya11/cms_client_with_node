@@ -1,0 +1,27 @@
+/* Sidebar default styles */
+.sidebar {
+    width: 250px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hide the sidebar on small screens */
+  @media (max-width: 768px) {
+    .sidebar {
+      transform: translateX(-100%);
+      width: 0;
+    }
+  
+    .sidebar.open {
+      transform: translateX(0);
+    }
+  
+    .toggle-btn {
+      display: block;
+    }
+  }
+  
+  /* Hide the toggle button on larger screens */
+  .toggle-btn {
+    display: none;
+  }
+  
