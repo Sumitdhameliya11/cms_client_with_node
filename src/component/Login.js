@@ -45,10 +45,9 @@ const Login = () => {
         Cookies.set("role", res?.data?.Data?.role, { expires: 1, path: "/" });
         Cookies.set("token", res?.data?.auth, {
           expires: 1,
-          sameSite: "Lax",
+          // sameSite: "Lax",
           // secure: true,
         });
-
         navigate("/Dashboard");
       })
       .catch((error) => {
