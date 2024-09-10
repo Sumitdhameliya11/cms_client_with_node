@@ -48,7 +48,10 @@ const Login = () => {
           // sameSite: "Lax",
           // secure: true,
         });
-        navigate("/Dashboard");
+        setTimeout(() => {
+          navigate("/Dashboard");
+        },300);
+        
       })
       .catch((error) => {
         Showerror(error?.response?.data?.message);
