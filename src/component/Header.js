@@ -10,6 +10,7 @@ import {
 } from "reactstrap";
 import { useLocation } from 'react-router-dom';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
+import Baseurl from "../api/Baseurl";
 import "../css/header.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 const Header = () => {
@@ -43,14 +44,14 @@ const Header = () => {
         <Collapse isOpen={isOpen} navbar className="justify-content-end">
           <Nav className="navv ml-auto align-items-center" navbar>
             <NavItem className={`item ${isActive('/') ? 'active' : ''}`}>
-              <NavLink href={`/`} onClick={() => { handleCollapse(); }}>
+              <NavLink href={`${Baseurl.dynamic}`} onClick={() => { handleCollapse(); }}>
                 <span className="btn btn-primary d-flex align-items-center py-2 fw-light">
                   <b className="mb-0 text-center">Home</b>
                 </span>
               </NavLink>
             </NavItem>
             <NavItem className="item">
-              <NavLink href={`/login`} onClick={() => { handleCollapse(); }}>
+              <NavLink href={`${Baseurl.dynamic}login`} onClick={() => { handleCollapse(); }}>
                 <span className="btn btn-primary d-flex align-items-center py-2">
                   <p className="mb-0 text-center">Login</p>
                 </span>
