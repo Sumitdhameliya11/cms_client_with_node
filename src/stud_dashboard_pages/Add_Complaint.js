@@ -72,7 +72,7 @@ const Add_Complaint = () => {
       subcategory	:subcategory,
       priority:priority,
       problem:description,
-      create_date:new Date()
+      create_date:date
     }).then((res)=>{
       Showsucess(res?.data?.message);
       setmobileno("");
