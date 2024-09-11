@@ -14,7 +14,7 @@ import {
   Table,
   InputGroup,
   InputGroupText,
-  ModalHeader
+  ModalHeader,
 } from "reactstrap";
 import DataSaverOnRoundedIcon from "@mui/icons-material/DataSaverOnRounded";
 import SearchIcon from "@mui/icons-material/Search";
@@ -22,6 +22,7 @@ import AxiosInstance from "../api/Axiosinstance";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../component/Loader";
+const token = Cookies.get("token");
 const Staff_registration = () => {
   const [modal, setModal] = useState(false);
   const [email, setemail] = useState("");
@@ -32,22 +33,29 @@ const Staff_registration = () => {
   const [editmode, seteditmode] = useState(false);
   const [errorMessage, seterrorMessage] = useState("");
   const [editid, seteditid] = useState("");
-  const [role,setrole]=useState("");
+  const [role, setrole] = useState("");
   const [searchinput, setsearchinput] = useState("");
   const [loading, setloading] = useState(false);
   useEffect(() => {
-    if(!searchinput){
+    if (!searchinput) {
       fetchdata();
-    }else{
-      AxiosInstance.get(`api/admin/search-user/${searchinput}`).then((res)=>{
-        setstaffdata(res?.data?.Data);
-      }).catch((error)=>{
-        Showerror(error?.response?.data?.message);
-      })
+    } else {
+      AxiosInstance.get(`api/admin/search-user/${searchinput}`)
+        .then((res) => {
+          setstaffdata(res?.data?.Data);
+        })
+        .catch((error) => {
+          Showerror(error?.response?.data?.message);
+        });
     }
   }, [searchinput]);
   const fetchdata = () => {
-    AxiosInstance.get("api/admin/show-staff").then((res) => {
+    const token = Cookies.get("token");
+    AxiosInstance.get("api/admin/show-staff", {
+      headers: {
+        authorization: `Bearer  ${token}`,
+      },
+    }).then((res) => {
       setstaffdata(res?.data?.Data);
     });
   };
@@ -94,7 +102,13 @@ const Staff_registration = () => {
       editmode
         ? AxiosInstance.put(
             `api/admin/update-user/${editid}`,
-            { name: name, email: email, password: password,cpassword:cpassword, role: role },
+            {
+              name: name,
+              email: email,
+              password: password,
+              cpassword: cpassword,
+              role: role,
+            },
             {
               headers: {
                 "Content-Type": "application/json",
@@ -114,7 +128,13 @@ const Staff_registration = () => {
           })
         : AxiosInstance.post(
             "api/admin/register",
-            { name: name, email: email, password: password,cpassword:cpassword, role: role },
+            {
+              name: name,
+              email: email,
+              password: password,
+              cpassword: cpassword,
+              role: role,
+            },
             {
               headers: {
                 "Content-Type": "application/json",
@@ -151,7 +171,7 @@ const Staff_registration = () => {
   };
   return (
     <div className="Add_student">
-    <Loader showimg={loading} />
+      <Loader showimg={loading} />
       <div className="d-flex justify-content-between me-4 mt-5 w-100 bg-white">
         <InputGroup className="mb-3 d-flex justify-content-start w-50 ms-3 pe-5">
           <InputGroupText className="border-end-0 bg-white">
@@ -224,8 +244,8 @@ const Staff_registration = () => {
         </Container>
       </div>
 
-            {/* ===================================== Modals ===================================== */}
-            <Modal
+      {/* ===================================== Modals ===================================== */}
+      <Modal
         className="modal"
         size="lg"
         isOpen={modal}
@@ -236,7 +256,7 @@ const Staff_registration = () => {
         <ModalBody>
           <Container className="mt-5">
             <Form onSubmit={handlesubmit}>
-            <FormGroup row className="justify-content-center">
+              <FormGroup row className="justify-content-center">
                 <Label for="email" sm={2} md={2} style={{ color: "#1974D2" }}>
                   Name :
                 </Label>
@@ -313,12 +333,7 @@ const Staff_registration = () => {
                 )}
               </FormGroup>
               <FormGroup row className="justify-content-center">
-                <Label
-                  for="role"
-                  sm={2}
-                  md={2}
-                  style={{ color: "#1974D2" }}
-                >
+                <Label for="role" sm={2} md={2} style={{ color: "#1974D2" }}>
                   role :
                 </Label>
                 <Col sm={10} md={8}>
@@ -353,7 +368,7 @@ const Staff_registration = () => {
         </ModalBody>
       </Modal>
     </div>
-  )
-}
+  );
+};
 
-export default Staff_registration
+export default Staff_registration;

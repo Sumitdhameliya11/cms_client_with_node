@@ -22,6 +22,7 @@ import AxiosInstance from "../api/Axiosinstance";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../component/Loader";
+import Cookies from "js-cookie";
 const AddAdmin = () => {
   const [modal, setModal] = useState(false);
   const [email, setemail] = useState("");
@@ -36,18 +37,25 @@ const AddAdmin = () => {
   const [searchinput, setsearchinput] = useState("");
   const [loading, setloading] = useState(false);
   useEffect(() => {
-    if(!searchinput){
+    if (!searchinput) {
       fetchdata();
-    }else{
-      AxiosInstance.get(`api/admin/search-user/${searchinput}`).then((res)=>{
-        setadmindata(res?.data?.Data);
-      }).catch((error)=>{
-        Showerror(error?.response?.data?.message);
-      })
+    } else {
+      AxiosInstance.get(`api/admin/search-user/${searchinput}`)
+        .then((res) => {
+          setadmindata(res?.data?.Data);
+        })
+        .catch((error) => {
+          Showerror(error?.response?.data?.message);
+        });
     }
   }, [searchinput]);
   const fetchdata = () => {
-    AxiosInstance.get("api/admin/show-admin").then((res) => {
+    const token = Cookies.get("token");
+    AxiosInstance.get("api/admin/show-admin", {
+      headers: {
+        authorization: `Bearer  ${token}`,
+      },
+    }).then((res) => {
       setadmindata(res?.data?.Data);
     });
   };
@@ -94,7 +102,13 @@ const AddAdmin = () => {
       editmode
         ? AxiosInstance.put(
             `api/admin/update-user/${editid}`,
-            { name: name, email: email, password: password,cpassword:cpassword, role: role },
+            {
+              name: name,
+              email: email,
+              password: password,
+              cpassword: cpassword,
+              role: role,
+            },
             {
               headers: {
                 "Content-Type": "application/json",
@@ -114,7 +128,13 @@ const AddAdmin = () => {
           })
         : AxiosInstance.post(
             "api/admin/register",
-            { name: name, email: email, password: password,cpassword:cpassword, role: role },
+            {
+              name: name,
+              email: email,
+              password: password,
+              cpassword: cpassword,
+              role: role,
+            },
             {
               headers: {
                 "Content-Type": "application/json",

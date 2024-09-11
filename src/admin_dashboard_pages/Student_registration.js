@@ -22,6 +22,7 @@ import AxiosInstance from "../api/Axiosinstance";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../component/Loader";
+import Cookies from "js-cookie";
 const Student_registration = () => {
   const [modal, setModal] = useState(false);
   const [email, setemail] = useState("");
@@ -49,7 +50,12 @@ const Student_registration = () => {
     }
   }, [searchinput]);
   const fetchdata = () => {
-    AxiosInstance.get("api/admin/show-student").then((res) => {
+    const token = Cookies.get("token");
+    AxiosInstance.get("api/admin/show-student", {
+      headers: {
+        authorization: `Bearer  ${token}`,
+      },
+    }).then((res) => {
       setstuddata(res?.data?.Data);
     });
   };
@@ -96,7 +102,13 @@ const Student_registration = () => {
       editmode
         ? AxiosInstance.put(
             `api/admin/update-user/${editid}`,
-            { name: name, email: email, password: password,cpassword:cpassword, role: role },
+            {
+              name: name,
+              email: email,
+              password: password,
+              cpassword: cpassword,
+              role: role,
+            },
             {
               headers: {
                 "Content-Type": "application/json",
@@ -116,27 +128,35 @@ const Student_registration = () => {
           })
         : AxiosInstance.post(
             "api/admin/register",
-            { name: name, email: email, password: password,cpassword:cpassword, role: role },
+            {
+              name: name,
+              email: email,
+              password: password,
+              cpassword: cpassword,
+              role: role,
+            },
             {
               headers: {
                 "Content-Type": "application/json",
               },
             }
-          ).then((res) => {
-            Showsucess(res?.data?.message);
-            setname("");
-            setemail("");
-            setpassword("");
-            setcpassword("");
-            setTimeout(() => {
+          )
+            .then((res) => {
+              Showsucess(res?.data?.message);
+              setname("");
+              setemail("");
+              setpassword("");
+              setcpassword("");
+              setTimeout(() => {
+                setloading(false);
+                setModal(false);
+              }, 300);
+              fetchdata();
+            })
+            .catch((error) => {
+              Showerror(error?.response?.data?.message);
               setloading(false);
-              setModal(false);
-            }, 300);
-            fetchdata();
-          }).catch((error)=>{
-            Showerror(error?.response?.data?.message);
-            setloading(false);
-          })
+            });
     }
   };
 
