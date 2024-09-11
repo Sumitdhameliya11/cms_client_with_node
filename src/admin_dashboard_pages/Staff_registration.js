@@ -40,7 +40,12 @@ const Staff_registration = () => {
     if (!searchinput) {
       fetchdata();
     } else {
-      AxiosInstance.get(`api/admin/search-user/${searchinput}`)
+      const token = Cookies.get("token");
+      AxiosInstance.get(`api/admin/search-user/${searchinput}`, {
+        headers: {
+          authorization: `Bearer  ${token}`,
+        },
+      })
         .then((res) => {
           setstaffdata(res?.data?.Data);
         })

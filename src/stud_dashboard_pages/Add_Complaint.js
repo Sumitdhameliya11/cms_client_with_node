@@ -49,7 +49,11 @@ const Add_Complaint = () => {
     setemail(Email);
   },[setemail])
   const fetchdata=()=>{
-    AxiosInstance.get(`api/student/show-complaint/${userId}`).then((res)=>{
+    const token = Cookies.get("token");
+    AxiosInstance.get(`api/student/show-complaint/${userId}`,{
+      headers: {
+        authorization: `Bearer  ${token}`
+    }}).then((res)=>{
       setdata(res?.data?.Data);
     }).catch((error)=>{
       Showerror(error?.response?.data?.message);

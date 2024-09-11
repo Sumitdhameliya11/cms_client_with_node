@@ -38,6 +38,7 @@ const Show_Complaint = () => {
   const [priority, setpriority] = useState();
   const [loading, setloading] = useState(false);
   const [rname, setrname] = useState();
+
   const labSubcategories = [
     "Lan Cabel",
     "Moniter",
@@ -51,7 +52,12 @@ const Show_Complaint = () => {
     if (!searchinput) {
       fetchdata();
     } else {
-      AxiosInstance.get(`api/admin/search-comaplaint/${searchinput}`)
+      const token = Cookies.get("token");
+      AxiosInstance.get(`api/admin/search-comaplaint/${searchinput}`, {
+        headers: {
+          authorization: `Bearer  ${token}`,
+        },
+      })
         .then((res) => {
           setdata(res?.data?.Data);
         })

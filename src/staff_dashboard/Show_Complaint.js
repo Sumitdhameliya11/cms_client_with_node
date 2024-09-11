@@ -28,12 +28,17 @@ const Show_Complaint = () => {
   const [editid, seteditid] = useState("");
   const [searchinput, setsearchinput] = useState("");
   const [loading, setloading] = useState(false);
- 
+
   useEffect(() => {
     if (!searchinput) {
       fetchdata();
     } else {
-      AxiosInstance.get(`api/staff/search-complaint/${searchinput}`)
+      const token = Cookies.get("token");
+      AxiosInstance.get(`api/staff/search-complaint/${searchinput}`, {
+        headers: {
+          authorization: `Bearer  ${token}`,
+        },
+      })
         .then((res) => {
           setdata(res?.data?.Data);
         })
@@ -44,10 +49,10 @@ const Show_Complaint = () => {
   }, [searchinput]);
   const fetchdata = () => {
     const token = Cookies.get("token");
-    AxiosInstance.get(`api/staff/show-complaint`,{
+    AxiosInstance.get(`api/staff/show-complaint`, {
       headers: {
-        authorization: `Bearer  ${token}`
-    }
+        authorization: `Bearer  ${token}`,
+      },
     })
       .then((res) => {
         setdata(res?.data?.Data);
