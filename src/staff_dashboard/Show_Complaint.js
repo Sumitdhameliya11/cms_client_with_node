@@ -21,6 +21,7 @@ import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../component/Loader";
+import Cookies from 'js-cookie';
 const Show_Complaint = () => {
   const [data, setdata] = useState([]);
   const [modal, setModal] = useState(false);
@@ -28,6 +29,7 @@ const Show_Complaint = () => {
   const [editid, seteditid] = useState("");
   const [searchinput, setsearchinput] = useState("");
   const [loading, setloading] = useState(false);
+  const token = Cookies.get("token")
   useEffect(() => {
     if (!searchinput) {
       fetchdata();
@@ -42,7 +44,11 @@ const Show_Complaint = () => {
     }
   }, [searchinput]);
   const fetchdata = () => {
-    AxiosInstance.get(`api/staff/show-complaint`)
+    AxiosInstance.get(`api/staff/show-complaint`,{
+      headers: {
+        authorization: `Bearer  ${token}`
+    }
+    })
       .then((res) => {
         setdata(res?.data?.Data);
       })
