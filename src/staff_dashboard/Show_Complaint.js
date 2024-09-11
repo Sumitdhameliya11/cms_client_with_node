@@ -28,7 +28,7 @@ const Show_Complaint = () => {
   const [editid, seteditid] = useState("");
   const [searchinput, setsearchinput] = useState("");
   const [loading, setloading] = useState(false);
-  const token = Cookies.get("token")
+ 
   useEffect(() => {
     if (!searchinput) {
       fetchdata();
@@ -43,6 +43,7 @@ const Show_Complaint = () => {
     }
   }, [searchinput]);
   const fetchdata = () => {
+    const token = Cookies.get("token")
     AxiosInstance.get(`api/staff/show-complaint`,{
       headers: {
         authorization: `Bearer  ${token}`
