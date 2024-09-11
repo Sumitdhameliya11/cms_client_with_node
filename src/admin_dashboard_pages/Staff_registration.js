@@ -22,7 +22,7 @@ import AxiosInstance from "../api/Axiosinstance";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../component/Loader";
-const token = Cookies.get("token");
+import Cookies from "js-cookie";
 const Staff_registration = () => {
   const [modal, setModal] = useState(false);
   const [email, setemail] = useState("");
