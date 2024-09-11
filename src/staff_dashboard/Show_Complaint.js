@@ -21,7 +21,6 @@ import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../component/Loader";
-import Cookies from 'js-cookie';
 const Show_Complaint = () => {
   const [data, setdata] = useState([]);
   const [modal, setModal] = useState(false);
