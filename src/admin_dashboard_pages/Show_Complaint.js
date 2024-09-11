@@ -61,7 +61,12 @@ const Show_Complaint = () => {
     }
   }, [searchinput]);
   const fetchdata = () => {
-    AxiosInstance.get(`api/admin/show-complaint`)
+    const token = Cookies.get("token");
+    AxiosInstance.get(`api/admin/show-complaint`, {
+      headers: {
+        authorization: `Bearer  ${token}`,
+      },
+    })
       .then((res) => {
         setdata(res?.data?.Data);
       })
@@ -98,18 +103,20 @@ const Show_Complaint = () => {
           "Content-Type": "application/json",
         },
       }
-    ).then((res) => {
-      Showsucess(res?.data?.message);
-      setstatus("");
-      fetchdata();
-      setTimeout(() => {
-        setModal(false);
+    )
+      .then((res) => {
+        Showsucess(res?.data?.message);
+        setstatus("");
+        fetchdata();
+        setTimeout(() => {
+          setModal(false);
+          setloading(false);
+        }, 200);
+      })
+      .catch((error) => {
+        Showerror(error?.response?.data?.message);
         setloading(false);
-      }, 200);
-    }).catch((error)=>{
-      Showerror(error?.response?.data?.message);
-      setloading(false);
-    })
+      });
   };
   const handleedit = (item) => {
     seteditid(item?.id);
@@ -118,7 +125,7 @@ const Show_Complaint = () => {
     setmobileno(item?.Mobile_number);
     setsutno(item?.sutno);
     setcategory(item?.category);
-    setsubcategory(item?.subcategory)
+    setsubcategory(item?.subcategory);
     setpriority(item?.priority);
     setdescription(item?.problem);
     setdate(item?.create_date);
@@ -128,16 +135,18 @@ const Show_Complaint = () => {
   };
   const handledelete = (id) => {
     setloading(true);
-    AxiosInstance.delete(`api/admin/delete-complaint/${id}`).then((res)=>{
-      Showsucess(res?.data?.message);
-      fetchdata();
-      setTimeout(() => {
+    AxiosInstance.delete(`api/admin/delete-complaint/${id}`)
+      .then((res) => {
+        Showsucess(res?.data?.message);
+        fetchdata();
+        setTimeout(() => {
+          setloading(false);
+        }, 200);
+      })
+      .catch((error) => {
+        Showerror(error?.response?.data?.message);
         setloading(false);
-      }, 200);
-    }).catch((error)=>{
-      Showerror(error?.response?.data?.message);
-      setloading(false);
-    })
+      });
   };
   //custom sucessfully message handle
   const Showsucess = (msg) => {
@@ -252,7 +261,7 @@ const Show_Complaint = () => {
         <ModalBody>
           <Container className="mt-3">
             <Form onSubmit={(e) => handlesubmit(e)}>
-            <FormGroup row className="justify-content-center">
+              <FormGroup row className="justify-content-center">
                 <Label for="email" sm={2} md={2} style={{ color: "#1974D2" }}>
                   Email :
                 </Label>

@@ -43,7 +43,7 @@ const Show_Complaint = () => {
     }
   }, [searchinput]);
   const fetchdata = () => {
-    const token = Cookies.get("token")
+    const token = Cookies.get("token");
     AxiosInstance.get(`api/staff/show-complaint`,{
       headers: {
         authorization: `Bearer  ${token}`
