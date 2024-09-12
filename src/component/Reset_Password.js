@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
 import Loader from "./Loader";
 import AxiosInstance from "../api/Axiosinstance";
+import Cookies from "js-cookie";
 // import { useNavigate } from "react-router-dom";
 const Reset_Password = () => {
     const { id,token} = useParams();

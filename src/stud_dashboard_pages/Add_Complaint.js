@@ -19,7 +19,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../component/Loader";
 import AxiosInstance from "../api/Axiosinstance";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 const Add_Complaint = () => {
   const [modal, setModal] = useState(false);
   const [email, setemail] = useState("");
@@ -32,8 +32,9 @@ const Add_Complaint = () => {
   const [priority, setpriority] = useState();
   const [data, setdata] = useState([]);
   const [loading, setloading] = useState(false);
-    const userId = Cookies.get("user_id");
-    const Email = Cookies.get("email");
+  const userId = Cookies.get("user_id");
+  const Email = Cookies.get("email");
+  const token = Cookies.get("token");
   const labSubcategories = [
     "Lan Cabel",
     "Moniter",
@@ -44,57 +45,71 @@ const Add_Complaint = () => {
     "Application",
   ];
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchdata();
     setemail(Email);
-  },[setemail])
-  const fetchdata=()=>{
+  }, [setemail]);
+  const fetchdata = () => {
     const token = Cookies.get("token");
-    AxiosInstance.get(`api/student/show-complaint/${userId}`,{
+    AxiosInstance.get(`api/student/show-complaint/${userId}`, {
       headers: {
-        authorization: `Bearer  ${token}`
-    }}).then((res)=>{
-      setdata(res?.data?.Data);
-    }).catch((error)=>{
-      Showerror(error?.response?.data?.message);
+        authorization: `Bearer  ${token}`,
+      },
     })
-  }
+      .then((res) => {
+        setdata(res?.data?.Data);
+      })
+      .catch((error) => {
+        Showerror(error?.response?.data?.message);
+      });
+  };
   const handlesubmit = (e) => {
     setloading(true);
     e.preventDefault();
-    if(moblieno.length !== 10){
-        alert("enter valied mobile number");
-        setloading(false);
-        return ;
-    }
-    AxiosInstance.post('api/student/add-complaint',{
-      user_id:userId,
-      Mobile_number:moblieno,
-      email:email,
-      sutno:sutno,
-      category:category,
-      subcategory	:subcategory,
-      priority:priority,
-      problem:description,
-      create_date:date
-    }).then((res)=>{
-      Showsucess(res?.data?.message);
-      setmobileno("");
-      setemail("");
-      setsutno("");
-      setcategory("");
-      setsubcategory("");
-      setpriority("");
-      setdescription("");
-      setTimeout(() => {
-        setloading(false);
-        setModal(false);
-      }, 200);
-      fetchdata();
-    }).catch((error)=>{
-      Showerror(error?.response?.data?.message);
+    if (moblieno.length !== 10) {
+      alert("enter valied mobile number");
       setloading(false);
-    })
+      return;
+    }
+    AxiosInstance.post(
+      "api/student/add-complaint",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer  ${token}`,
+        },
+      },
+      {
+        user_id: userId,
+        Mobile_number: moblieno,
+        email: email,
+        sutno: sutno,
+        category: category,
+        subcategory: subcategory,
+        priority: priority,
+        problem: description,
+        create_date: date,
+      }
+    )
+      .then((res) => {
+        Showsucess(res?.data?.message);
+        setmobileno("");
+        setemail("");
+        setsutno("");
+        setcategory("");
+        setsubcategory("");
+        setpriority("");
+        setdescription("");
+        setTimeout(() => {
+          setloading(false);
+          setModal(false);
+        }, 200);
+        fetchdata();
+      })
+      .catch((error) => {
+        Showerror(error?.response?.data?.message);
+        setloading(false);
+      });
   };
 
   //custom sucessfully message handle
@@ -147,7 +162,7 @@ const Add_Complaint = () => {
         toggle={() => setModal(!modal)}
         centered
       >
-      <Loader showimg={loading}/>
+        <Loader showimg={loading} />
         <ModalHeader toggle={() => setModal(!modal)}>Add Complaint</ModalHeader>
         <ModalBody>
           <Container className="mt-3">

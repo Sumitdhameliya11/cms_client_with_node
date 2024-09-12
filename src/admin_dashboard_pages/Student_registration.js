@@ -36,6 +36,7 @@ const Student_registration = () => {
   const [role, setrole] = useState("");
   const [searchinput, setsearchinput] = useState("");
   const [loading, setloading] = useState(false);
+  const token = Cookies.get("token");
   useEffect(() => {
     if (!searchinput) {
       fetchdata();
@@ -117,6 +118,7 @@ const Student_registration = () => {
             {
               headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer  ${token}`,
               },
             }
           ).then((res) => {
@@ -143,6 +145,7 @@ const Student_registration = () => {
             {
               headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer  ${token}`,
               },
             }
           )

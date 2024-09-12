@@ -14,9 +14,11 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AxiosInstance from "../api/Axiosinstance";
+import Cookies from "js-cookie";
 const Forgot_Password = () => {
     const [email,setemail]=useState();
     const navigate = useNavigate();
+    const token = Cookies.get("token");
   //forgotpassword api calling
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -24,6 +26,7 @@ const Forgot_Password = () => {
       .post(`api/user/forgot-password/${email}`, {
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer  ${token}`,
         },
       })
       .then((res) => {

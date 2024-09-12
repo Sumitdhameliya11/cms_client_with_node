@@ -36,6 +36,7 @@ const Staff_registration = () => {
   const [role, setrole] = useState("");
   const [searchinput, setsearchinput] = useState("");
   const [loading, setloading] = useState(false);
+  const token = Cookies.get("token");
   useEffect(() => {
     if (!searchinput) {
       fetchdata();
@@ -74,7 +75,11 @@ const Staff_registration = () => {
     setrole(item?.role);
   };
   const handledelete = (id) => {
-    AxiosInstance.delete(`api/admin/delete-user/${id}`)
+    AxiosInstance.delete(`api/admin/delete-user/${id}`, {
+      headers: {
+        authorization: `Bearer  ${token}`,
+      },
+    })
       .then((res) => {
         alert(res?.data?.message);
         fetchdata();
@@ -117,6 +122,7 @@ const Staff_registration = () => {
             {
               headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer  ${token}`,
               },
             }
           ).then((res) => {
@@ -143,6 +149,7 @@ const Staff_registration = () => {
             {
               headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer  ${token}`,
               },
             }
           ).then((res) => {

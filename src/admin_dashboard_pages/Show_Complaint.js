@@ -38,7 +38,7 @@ const Show_Complaint = () => {
   const [priority, setpriority] = useState();
   const [loading, setloading] = useState(false);
   const [rname, setrname] = useState();
-
+  const token = Cookies.get("token");
   const labSubcategories = [
     "Lan Cabel",
     "Moniter",
@@ -107,6 +107,7 @@ const Show_Complaint = () => {
       {
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer  ${token}`,
         },
       }
     )
@@ -141,7 +142,11 @@ const Show_Complaint = () => {
   };
   const handledelete = (id) => {
     setloading(true);
-    AxiosInstance.delete(`api/admin/delete-complaint/${id}`)
+    AxiosInstance.delete(`api/admin/delete-complaint/${id}`, {
+      headers: {
+        authorization: `Bearer  ${token}`,
+      },
+    })
       .then((res) => {
         Showsucess(res?.data?.message);
         fetchdata();

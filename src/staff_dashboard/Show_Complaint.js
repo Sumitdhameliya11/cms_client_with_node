@@ -28,7 +28,7 @@ const Show_Complaint = () => {
   const [editid, seteditid] = useState("");
   const [searchinput, setsearchinput] = useState("");
   const [loading, setloading] = useState(false);
-
+  const token = Cookies.get("token");
   useEffect(() => {
     if (!searchinput) {
       fetchdata();
@@ -79,6 +79,7 @@ const Show_Complaint = () => {
       {
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer  ${token}`,
         },
       }
     )

@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import AxiosInstance from "../api/Axiosinstance";
 import { useNavigate } from "react-router-dom";
 const Change_password = () => {
@@ -20,6 +20,7 @@ const Change_password = () => {
   const [oldpassword, setoldpassword] = useState();
   const [cpassword, setcpassword] = useState();
   const navigate = useNavigate();
+  const token = Cookies.get("token");
   // custom sucessfully message handle
   const Showsucess = (msg) => {
     toast.success(msg, {
@@ -52,6 +53,7 @@ const Change_password = () => {
       {
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer  ${token}`,
         },
       }
     )
