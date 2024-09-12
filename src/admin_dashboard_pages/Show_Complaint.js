@@ -39,6 +39,7 @@ const Show_Complaint = () => {
   const [loading, setloading] = useState(false);
   const [rname, setrname] = useState();
   const token = Cookies.get("token");
+  const todayDate = new Date().toISOString().split("T")[0];
   const labSubcategories = [
     "Lan Cabel",
     "Moniter",
@@ -436,6 +437,8 @@ const Show_Complaint = () => {
                     placeholder="Select date"
                     value={date}
                     onChange={(e) => setdate(e.target.value)}
+                    min={todayDate}
+                    max={todayDate}
                   />
                 </Col>
               </FormGroup>
@@ -456,6 +459,8 @@ const Show_Complaint = () => {
                     placeholder="Select date"
                     value={rdate}
                     onChange={(e) => setrdate(e.target.value)}
+                    min={todayDate}
+                    max={todayDate}
                   />
                 </Col>
               </FormGroup>

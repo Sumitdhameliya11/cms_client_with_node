@@ -34,6 +34,7 @@ const Add_Complaint = () => {
   const [loading, setloading] = useState(false);
     const userId = Cookies.get("user_id");
     const Email = Cookies.get("email");
+    const todayDate = new Date().toISOString().split("T")[0];
   const labSubcategories = [
     "Lan Cabel",
     "Moniter",
@@ -306,6 +307,8 @@ const Add_Complaint = () => {
                     required
                     value={date}
                     onChange={(e) => setdate(e.target.value)}
+                    min={todayDate}
+                    max={todayDate}
                   />
                 </Col>
               </FormGroup>
@@ -369,27 +372,6 @@ const Add_Complaint = () => {
                     <td>{item.computer_ip || "N/A"}</td>
                     <td>{item.resolve_ip || "N/A"}</td>
                     <td>{item.priority || "N/A"}</td>
-                    {/* <td>
-                      <div className="">
-                        <button
-                          className="btn btn-warning me-1"
-                          onClick={() => {
-                            handleedit(item);
-                            setModal(true);
-                          }}
-                        >
-                          Edit
-                        </button>
-                        <button
-                          className="btn btn-danger"
-                          onClick={() => {
-                            handledelete(item?.id);
-                          }}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </td> */}
                   </tr>
                 </tbody>
               ))}
