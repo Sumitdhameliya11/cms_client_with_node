@@ -72,13 +72,7 @@ const Add_Complaint = () => {
       return;
     }
     AxiosInstance.post(
-      "api/student/add-complaint",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer  ${token}`,
-        },
-      },
+      "api/student/add-complaint",  
       {
         user_id: userId,
         Mobile_number: moblieno,
@@ -89,6 +83,11 @@ const Add_Complaint = () => {
         priority: priority,
         problem: description,
         create_date: date,
+      },{
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer  ${token}`,
+        },
       }
     )
       .then((res) => {
