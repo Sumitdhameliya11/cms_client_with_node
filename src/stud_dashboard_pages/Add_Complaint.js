@@ -35,6 +35,7 @@ const Add_Complaint = () => {
     const userId = Cookies.get("user_id");
     const Email = Cookies.get("email");
     const todayDate = new Date().toISOString().split("T")[0];
+    const token = Cookies.get("token");
   const labSubcategories = [
     "Lan Cabel",
     "Moniter",
