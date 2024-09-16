@@ -56,7 +56,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/sumitdhameliya11/"
               target="_blank"
             >
-              Sumit Dhameliya
+              {""}Byte Builders
             </a></div>
         </div>
       </footer>

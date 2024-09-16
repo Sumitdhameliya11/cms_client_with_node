@@ -42,7 +42,7 @@ const AddAdmin = () => {
       fetchdata();
     } else {
       const token = Cookies.get("token");
-      AxiosInstance.get(`api/admin/search-user/${searchinput}`, {
+      AxiosInstance.get(`api/admin/search-admin-user/${searchinput}`, {
         headers: {
           authorization: `Bearer  ${token}`,
         },
