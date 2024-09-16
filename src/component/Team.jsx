@@ -2,7 +2,7 @@ import React from 'react';
 import sumit from "../image/sumit.png";
 import nirav from "../image/nirav.jpg";
 import uttam from "../image/uttam.png";
-import parth from "../image/parth.jpg";
+import parth from "../image/parth.jpeg";
 import shruti from "../image/shruti.jpg";
 import astha from "../image/astha.jpg"
 
