@@ -1,7 +1,7 @@
 import React from 'react';
 import sumit from "../image/sumit.png";
 import nirav from "../image/nirav.jpg";
-import uttam from "../image/uttam.jpg";
+import uttam from "../image/uttam.png";
 import parth from "../image/parth.jpg";
 import shruti from "../image/shruti.jpg";
 import astha from "../image/astha.jpg"
@@ -56,7 +56,7 @@ const developers = [
 function Developers() {
     return (
         <div className="container my-5">
-            <h2 className="text-center mb-4">Our Developers</h2>
+            <h2 className="text-center mb-4 fw-bold">Our Developers</h2>
             <div className="row">
                 {developers.map((developer) => (
                     <div className="col-12 col-md-6 col-lg-4 mb-4" key={developer.id}>
