@@ -268,7 +268,7 @@ const AddAdmin = () => {
         toggle={() => setModal(!modal)}
         centered
       >
-        <ModalHeader toggle={() => setModal(!modal)}>Add Student</ModalHeader>
+        <ModalHeader toggle={() => setModal(!modal)}>Add Admin</ModalHeader>
         <ModalBody>
           <Container className="mt-5">
             <Form onSubmit={handlesubmit}>

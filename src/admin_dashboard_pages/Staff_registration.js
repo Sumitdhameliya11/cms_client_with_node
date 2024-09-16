@@ -264,7 +264,7 @@ const Staff_registration = () => {
         toggle={() => setModal(!modal)}
         centered
       >
-        <ModalHeader toggle={() => setModal(!modal)}>Add Student</ModalHeader>
+        <ModalHeader toggle={() => setModal(!modal)}>Add Staff</ModalHeader>
         <ModalBody>
           <Container className="mt-5">
             <Form onSubmit={handlesubmit}>

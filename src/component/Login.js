@@ -136,18 +136,6 @@ const Login = () => {
               <Button color="primary" block>
                 Sign in
               </Button>
-
-              <div className="pt-0 my-2">
-                <Label className="d-inline fw-medium ">
-                  Sign up to create a new account&nbsp;
-                  <a
-                    href={`/register`}
-                    className="text-decoration-none text-black fw-bold"
-                  >
-                    Sign up now.
-                  </a>
-                </Label>
-              </div>
             </Form>
           </div>
         </Col>
