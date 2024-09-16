@@ -1,7 +1,7 @@
 import React from 'react';
 import sumit from "../image/sumit.png";
 import nirav from "../image/nirav.jpg";
-import uttam from "../image/uttam.png";
+import uttam from "../image/uttam.jpg";
 import parth from "../image/parth.jpg";
 import shruti from "../image/shruti.jpg";
 import astha from "../image/astha.jpg"
@@ -10,53 +10,59 @@ import astha from "../image/astha.jpg"
 
 const developers = [
     {
-        id: 1,
-        name: "Sumit Dhameliya",
-        image: sumit,
-        specialization: "Full-stack Developer",
-        skill: "React.js, MySQL, MongoDB, Node.js, PHP, Bootstrap",
+      id: 1,
+      name: "Sumit Dhameliya",
+      image: sumit,
+      specialization: "Full-stack Developer",
+      skill: "React.js, MySQL, MongoDB, Node.js, PHP, Bootstrap",
+      instagram: "https://instagram.com/sumit_dhameliya",
     },
     {
-        id: 2,
-        name: "Nirav Mathukiya",
-        image: nirav,
-        specialization: "Full-stack Developer",
-        skill: "React.js, Next.js, Node.js, Bootstrap , tailwind , Javascript",
+      id: 2,
+      name: "Nirav Mathukiya",
+      image: nirav,
+      specialization: "Full-stack Developer",
+      skill: "React.js, Next.js, Node.js, Bootstrap, Tailwind, JavaScript",
+      instagram: "https://instagram.com/nirav_mathukiya",
     },
     {
-        id: 4,
-        name: "Parth Dudhatra",
-        image: parth,
-        specialization: "Front-End Developer",
-        skill: "Naggai, Group ma pizza mokalva, Bootstrap",
+      id: 3,
+      name: "Parth Dudhatra",
+      image: parth,
+      specialization: "Front-End Developer",
+      skill: "javascript ,boostrap, tailwind CSS ,react.js",
+      instagram: "https://instagram.com/parth_dudhatra",
     },
     {
-        id: 3,
-        name: "Uttam Dobariya",
-        image: uttam,
-        specialization: "Front-End Developer",
-        skill: "React.js, Next.js, Tailwind CSS, Bootstrap",
+      id: 4,
+      name: "Uttam Dobariya",
+      image: uttam,
+      specialization: "Front-End Developer",
+      skill: "React.js, Next.js, Tailwind CSS, Bootstrap",
+      instagram: "https://instagram.com/uttam_dobariya",
     },
     {
-        id: 5,
-        name: "Shruti Ghevariya",
-        image: shruti,
-        specialization: "Tester",
-        skill: "Postman, Documentation",
+      id: 5,
+      name: "Shruti Ghevariya",
+      image: shruti,
+      specialization: "Tester",
+      skill: "Postman, Documentation",
+      instagram: "https://instagram.com/shruti_ghevariya",
     },
     {
-        id: 6,
-        name: "Astha Maniya",
-        image: astha,
-        specialization: "Tester",
-        skill: "Postman, Documentation",
+      id: 6,
+      name: "Astha Maniya",
+      image: astha,
+      specialization: "Tester",
+      skill: "Postman, Documentation",
+      instagram: "https://instagram.com/astha_maniya",
     },
 ];
 
 function Developers() {
     return (
         <div className="container my-5">
-            <h2 className="text-center mb-4 fw-bold">Our Developers</h2>
+            <h2 className="text-center mb-4">Our Developers</h2>
             <div className="row">
                 {developers.map((developer) => (
                     <div className="col-12 col-md-6 col-lg-4 mb-4" key={developer.id}>
@@ -84,4 +90,4 @@ function Developers() {
     );
 }
 
-export default Developers;
+export default DeveloperSection;
