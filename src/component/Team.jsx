@@ -1,11 +1,11 @@
 import React from 'react';
+import "../css/team.css";
 import sumit from "../image/sumit.png";
 import nirav from "../image/nirav.jpg";
 import uttam from "../image/uttam.png";
 import parth from "../image/parth.jpg";
 import shruti from "../image/shruti.jpg";
 import astha from "../image/astha.jpg"
-import "../css/team.css"
 
 // Assuming you've already imported images for each developer like sumit, nirav, uttam, etc.
 
