@@ -1,8 +1,8 @@
 import React from 'react';
 import sumit from '../image/sumit.png';
 import nirav from '../image/nirav.jpg';
-import parth from '../image/parth.jpeg';
-import uttam from '../image/uttam.jpg';
+import parth from '../image/parth.jpg';
+import uttam from '../image/uttam.png';
 import shruti from '../image/shruti.jpg';
 import astha from '../image/astha.jpg';
 import '../css/team.css';
