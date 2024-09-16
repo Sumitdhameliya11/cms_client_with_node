@@ -29,7 +29,7 @@ const developers = [
       name: "Parth Dudhatra",
       image: parth,
       specialization: "Front-End Developer",
-      skill: "Naggai, Bootstrap",
+      skill: "javascript ,boostrap, tailwind CSS ,react.js",
       instagram: "https://instagram.com/parth_dudhatra",
     },
     {
