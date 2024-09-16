@@ -56,30 +56,37 @@ const developers = [
       skill: "Postman, Documentation",
       instagram: "https://instagram.com/astha_maniya",
     },
-  ];
-  
-const DeveloperSection = () => {
-  return (
-    <div className="developer-wrapper">
-      <h4 className="developer-title">Our Developers</h4>
-      <div className="developer-container">
-        {developers.map((developer) => (
-            <div className="bordersp">
-          <div className="developer-card" key={developer.id}>
-            <div className="developer-image">
-              <img src={developer.image} alt={developer.name} />
-            </div>
-            <div className="developer-info">
-              <h3>{developer.name}</h3>
-              <p><strong>Specialization:</strong> {developer.specialization}</p>
-              <p><strong>Skills:</strong> {developer.skill}</p>
-            </div>
-          </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+];
 
-export default DeveloperSection;
+function Team() {
+    return (
+        <div className="container my-5">
+            <h2 className="text-center mb-4">Our Developers</h2>
+            <div className="row">
+                {developers.map((developer) => (
+                    <div className="col-12 col-md-6 col-lg-4 mb-4" key={developer.id}>
+                        <div className="card h-100 d-flex flex-column shadow-sm">
+                            <img
+                                src={developer.image}
+                                className="card-img-top"
+                                alt={developer.name}
+                                style={{ objectFit: 'cover', height: '300px' }} // Increased image height
+                            />
+                            <div className="card-body d-flex flex-column">
+                                <h5 className="card-title">{developer.name}</h5>
+                                <p className="card-text">
+                                    <strong>Specialization:</strong> {developer.specialization}
+                                </p>
+                                <p className="card-text mt-auto">
+                                    <strong>Skills:</strong> {developer.skill}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default Team;
