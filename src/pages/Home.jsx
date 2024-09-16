@@ -115,7 +115,7 @@ const Home = () => {
               <div className="text">{slide.text}</div>
               <br />
               <a
-                href="#"
+                href={'/Dashboard'}
                 style={{
                   padding: "10px 20px",
                   marginTop: "15px",

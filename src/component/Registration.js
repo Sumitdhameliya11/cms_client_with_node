@@ -84,7 +84,7 @@ const Registration = () => {
                 Registration
               </h2>
               <p className="fw-bold">
-                Welcome Please Sign up For Add Complaint.
+                Welcome Please Sign up For Complaint Management System
               </p>
             </div>
             <div>
