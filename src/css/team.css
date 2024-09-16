@@ -103,7 +103,8 @@
   .developer-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 40px 50px -20px rgba(0, 0, 0, 0.3); /* Adds more shadow for lift effect */
-    border: 2px solid liner-grident(blue , pink ,sky ,green); /* RGB border color on hover */
+    border: 2px solid; /* Add a solid border */
+    background-image: linear-gradient(blue, pink, skyblue, green); /* Gradient for the border */
   }
   
   /* Social Media Links Container (if needed) */
