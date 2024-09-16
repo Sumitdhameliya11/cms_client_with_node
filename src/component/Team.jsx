@@ -2,9 +2,10 @@ import React from 'react';
 import sumit from "../image/sumit.png";
 import nirav from "../image/nirav.jpg";
 import uttam from "../image/uttam.png";
-import parth from "../image/parth.jpeg";
+import parth from "../image/parth.jpg";
 import shruti from "../image/shruti.jpg";
 import astha from "../image/astha.jpg"
+import "../css/team.css"
 
 // Assuming you've already imported images for each developer like sumit, nirav, uttam, etc.
 
@@ -59,7 +60,7 @@ const developers = [
     },
 ];
 
-function Developers() {
+function Team() {
     return (
         <div className="container my-5">
             <h2 className="text-center mb-4">Our Developers</h2>
@@ -90,4 +91,4 @@ function Developers() {
     );
 }
 
-export default DeveloperSection;
+export default Team;
