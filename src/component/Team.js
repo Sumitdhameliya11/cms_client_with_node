@@ -16,6 +16,7 @@ const developers = [
     specialization: "Full-stack Developer",
     skill: "MongoDB, Express, React.js, Node.js, MYSql, PHP, Bootstrap",
     github: "https://github.com/sumit_dhameliya",
+    linkedin: "https://linkedin.com/sumit_dhameliya",
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const developers = [
     specialization: "Full-stack Developer",
     skill: "React.js, Next.js, Node.js, Bootstrap, Bootstrap, JavaScript",
     github: "https://github.com/nirav_mathukiya",
+    linkedin: "https://linkedin.com/nirav_mathukiya",
   },
   {
     id: 3,
@@ -32,6 +34,7 @@ const developers = [
     specialization: "Front-End Developer",
     skill: "React.js, Next.js, React Native, Expo, JavaScript, TypeScript, Tailwind CSS, SASS, UI Libraries",
     github: "https://github.com/imparth7",
+    linkedin: "https://linkedin.com/imparth7",
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ const developers = [
     specialization: "Front-End Developer",
     skill: "React.js, React Native, Tailwind CSS, Bootstrap, JavaScript, Chakra UI",
     github: "https://github.com/uttam_dobariya",
+    linkedin: "https://linkedin.com/uttam_dobariya",
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ const developers = [
     specialization: "Tester",
     skill: "Postman, Documentation",
     github: "https://github.com/shruti_ghevariya",
+    linkedin: "https://linkedin.com/shruti_ghevariya",
   },
   {
     id: 6,
@@ -56,6 +61,7 @@ const developers = [
     specialization: "Tester",
     skill: "Postman, Documentation",
     github: "https://github.com/astha_maniya",
+    linkedin: "https://linkedin.com/astha_maniya",
   },
 ];
 
@@ -75,11 +81,11 @@ function Team() {
 
   return (
     <div className="container my-5">
-      <h2 className="text-center mb-4">Our Developers</h2>
+      <h2 className="text-center mb-4 text-primary">Our Developers</h2>
       <div className="row">
         {developers.map((developer) => (
           <div className="col-12 col-md-6 col-lg-4 mb-4" key={developer.id}>
-            <div className="card h-100 d-flex flex-column shadow-sm" onClick={() => handleCardClick(developer)}  style={{ borderRadius: 10, overflow: 'hidden' }}>
+            <div className="card h-100 d-flex flex-column shadow-sm" onClick={() => handleCardClick(developer)} style={{ borderRadius: 10, overflow: 'hidden' }}>
               <img
                 src={developer.image}
                 className="card-img-top"
@@ -104,20 +110,22 @@ function Team() {
               src={selectedDeveloper.image}
               className="img-fluid mb-3"
               alt={selectedDeveloper.name}
-              style={{
-                objectFit: 'cover', width: '100%', aspectRatio: "4/3", borderRadius: "25px",
-                // marginLeft: "25%"
-              }}
+              style={{ objectFit: 'cover', width: '100%', aspectRatio: "4/3", borderRadius: "25px", }}
             />
             <h4><strong>{selectedDeveloper.specialization}</strong></h4>
             <p>{selectedDeveloper.skill}</p>
-            <p><a href={selectedDeveloper.github} target="_blank" className='btn btn-primary'>Github</a></p>
+            <div style={{ display: 'flex', gap: 10}}>
+              <p><a href={selectedDeveloper.github} target="_blank" className='btn btn-primary'>Github</a></p>
+              <p><a href={selectedDeveloper.linkedin} target="_blank" className='btn btn-primary'>Linkedin</a></p>
+            </div>
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
+          {/**
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          */}
         </Modal>
       )}
     </div>
