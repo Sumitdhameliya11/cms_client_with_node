@@ -15,8 +15,8 @@ const developers = [
     image: sumit,
     specialization: "Full-stack Developer",
     skill: "MongoDB, Express, React.js, Node.js, MYSql, PHP, Bootstrap",
-    github: "https://github.com/sumit_dhameliya",
-    linkedin: "https://linkedin.com/sumit_dhameliya",
+    github: "https://github.com/Sumitdhameliya11",
+    linkedin: "https://www.linkedin.com/in/sumitdhameliya11/",
   },
   {
     id: 2,
@@ -24,8 +24,8 @@ const developers = [
     image: nirav,
     specialization: "Full-stack Developer",
     skill: "React.js, Next.js, Node.js, Bootstrap, Bootstrap, JavaScript",
-    github: "https://github.com/nirav_mathukiya",
-    linkedin: "https://linkedin.com/nirav_mathukiya",
+    github: "https://github.com/NiravMathukiya",
+    linkedin: "https://www.linkedin.com/in/nirav-mathukiya007",
   },
   {
     id: 3,
@@ -42,8 +42,8 @@ const developers = [
     image: uttam,
     specialization: "Front-End Developer",
     skill: "React.js, React Native, Tailwind CSS, Bootstrap, JavaScript, Chakra UI",
-    github: "https://github.com/uttam_dobariya",
-    linkedin: "https://linkedin.com/uttam_dobariya",
+    github: "https://github.com/uttam172",
+    linkedin: "https://www.linkedin.com/in/uttamdobariya/",
   },
   {
     id: 5,
@@ -51,8 +51,8 @@ const developers = [
     image: shruti,
     specialization: "Tester",
     skill: "Postman, Documentation",
-    github: "https://github.com/shruti_ghevariya",
-    linkedin: "https://linkedin.com/shruti_ghevariya",
+    github: "https://github.com/shruti-ghevariya",
+    linkedin: "https://linkedin.com/",
   },
   {
     id: 6,
@@ -60,8 +60,8 @@ const developers = [
     image: astha,
     specialization: "Tester",
     skill: "Postman, Documentation",
-    github: "https://github.com/astha_maniya",
-    linkedin: "https://linkedin.com/astha_maniya",
+    github: "https://github.com/AasthaManiya35",
+    linkedin: "https://linkedin.com/",
   },
 ];
 
@@ -119,13 +119,6 @@ function Team() {
               <p><a href={selectedDeveloper.linkedin} target="_blank" className='btn btn-primary'>Linkedin</a></p>
             </div>
           </Modal.Body>
-          {/**
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
-          */}
         </Modal>
       )}
     </div>
