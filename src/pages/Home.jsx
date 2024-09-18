@@ -6,7 +6,15 @@ import "swiper/css";
 import "swiper/css/effect-creative";
 import i1 from "../image/home.jpg";
 import i2 from "../image/home1.jpg";
-import { Container, Row, Col, Card, CardBody, CardText, CardFooter} from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardBody,
+  CardText,
+  CardFooter,
+} from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPaperPlane,
@@ -18,7 +26,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 // Import required modules
 import { EffectCreative, Autoplay } from "swiper/modules";
-// import Team from "../component/Team"
+import Team from "../component/Team";
 const Home = () => {
   const backgroundImages = [`url(${i1})`, `url(${i2})`];
 
@@ -37,7 +45,8 @@ const Home = () => {
       title: "Complaint Management System",
       text: "The Complaint Management System enables students to report issues and concerns easily. It ensures prompt handling and resolution of complaints, fostering a supportive learning environment. Stay informed with real-time updates and track the progress of your submissions.",
       backgroundImage: backgroundImages[1],
-    },{
+    },
+    {
       title: "Complaint Management System",
       text: "The Complaint Management System enables students to report issues and concerns easily. It ensures prompt handling and resolution of complaints, fostering a supportive learning environment. Stay informed with real-time updates and track the progress of your submissions.",
       backgroundImage: backgroundImages[1],
@@ -115,7 +124,7 @@ const Home = () => {
               <div className="text">{slide.text}</div>
               <br />
               <a
-                href={'/Dashboard'}
+                href={"/Dashboard"}
                 style={{
                   padding: "10px 20px",
                   marginTop: "15px",
@@ -135,40 +144,55 @@ const Home = () => {
       </Swiper>
 
       {/* ===============================Created By============================ */}
-        {/* <Team  /> */}
+      <Team />
 
       {/* ===============================testimonial ============================ */}
       <Container className="my-5 px-2 w-100 shadow p-4 rounded-3">
-      <h2 className="text-center text-primary fw-bold mb-4">What Students Say</h2>
-      <div className="marquee-container">
-        <div className="marquee">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="testimonial w-50">
-              <Card className=" w-100 shadow " style={{backgroundColor:"#D3D3D3",height:"150px"}}>
-                <CardBody>
-                  <CardText className="text-black fs-5">"{testimonial.text}"</CardText>
-                  <CardFooter className="text-end text-black fs-4">
-                    <cite>- {testimonial.author}</cite>
-                  </CardFooter>
-                </CardBody>
-              </Card>
-            </div>
-          ))}
-          {testimonials.map((testimonial, index) => (
-            <div key={index + testimonials.length} className="testimonial w-50" >
-              <Card className="w-100 shadow" style={{backgroundColor:"#D3D3D3",height:"150px"}}>
-                <CardBody>
-                  <CardText className="text-black fs-5">"{testimonial.text}"</CardText>
-                  <CardFooter className="text-end text-black fs-4">
-                    <cite>- {testimonial.author}</cite>
-                  </CardFooter>
-                </CardBody>
-              </Card>
-            </div>
-          ))}
+        <h2 className="text-center text-primary fw-bold mb-4">
+          What Students Say
+        </h2>
+        <div className="marquee-container">
+          <div className="marquee">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="testimonial w-50">
+                <Card
+                  className=" w-100 shadow "
+                  style={{ backgroundColor: "#D3D3D3", height: "150px" }}
+                >
+                  <CardBody>
+                    <CardText className="text-black fs-5">
+                      "{testimonial.text}"
+                    </CardText>
+                    <CardFooter className="text-end text-black fs-4">
+                      <cite>- {testimonial.author}</cite>
+                    </CardFooter>
+                  </CardBody>
+                </Card>
+              </div>
+            ))}
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index + testimonials.length}
+                className="testimonial w-50"
+              >
+                <Card
+                  className="w-100 shadow"
+                  style={{ backgroundColor: "#D3D3D3", height: "150px" }}
+                >
+                  <CardBody>
+                    <CardText className="text-black fs-5">
+                      "{testimonial.text}"
+                    </CardText>
+                    <CardFooter className="text-end text-black fs-4">
+                      <cite>- {testimonial.author}</cite>
+                    </CardFooter>
+                  </CardBody>
+                </Card>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
 
       {/* ------------------------------------------- FAQ -------------------------------------- */}
       <Container className="w-100 px-2">
@@ -193,7 +217,7 @@ const Home = () => {
                   />{" "}
                   How do I submit a complaint?
                 </h6>
-                <p >
+                <p>
                   <strong>
                     <u>Absolutely!</u>
                   </strong>{" "}
